@@ -1,15 +1,14 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Amazon.S3.Model;
 using System.Net;
 using Amazon.S3;
+using Xunit;
 
 namespace LocalS3.Test
 {
-    [TestClass]
     public class BucketTest : LocalS3Test
     {
-        [TestMethod]
+        [Fact]
         public void PutNewBucket()
         {
             var response = this.client.PutBucket(new PutBucketRequest { 
@@ -19,15 +18,17 @@ namespace LocalS3.Test
             S3Assert.DirectoryExists("my-test");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(AmazonS3Exception))]
+        [Fact]
         public void CantPutBucketTwice()
         {
             this.client.PutBucket(new PutBucketRequest { BucketName = "my-test" });
-            this.client.PutBucket(new PutBucketRequest { BucketName = "my-test" });
+            Assert.Throws<AmazonS3Exception>(() =>
+            {
+                this.client.PutBucket(new PutBucketRequest { BucketName = "my-test" });
+            });
         }
 
-        [TestMethod]
+        [Fact]
         public void DeleteExistingBucket()
         {
             var response1 = this.client.PutBucket(new PutBucketRequest { BucketName = "my-test" });
@@ -36,7 +37,7 @@ namespace LocalS3.Test
             S3Assert.DirectoryDoesNotExists("my-test");
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldListAllBuckets()
         {
             this.client.PutBucket(new PutBucketRequest { BucketName = "my-test1" });
@@ -44,13 +45,13 @@ namespace LocalS3.Test
             this.client.PutBucket(new PutBucketRequest { BucketName = "my-test3" });
 
             var response = this.client.ListBuckets();
-            Assert.AreEqual(3, response.Buckets.Count);
-            Assert.AreEqual("my-test1", response.Buckets[0].BucketName);
-            Assert.AreEqual("my-test2", response.Buckets[1].BucketName);
-            Assert.AreEqual("my-test3", response.Buckets[2].BucketName);
+            Assert.Equal(3, response.Buckets.Count);
+            Assert.Equal("my-test1", response.Buckets[0].BucketName);
+            Assert.Equal("my-test2", response.Buckets[1].BucketName);
+            Assert.Equal("my-test3", response.Buckets[2].BucketName);
         }
 
-        [TestMethod]
+        [Fact]
         public void CantDeleteBucketWithObjects()
         {
             //Todo

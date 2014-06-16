@@ -1,22 +1,21 @@
 ﻿using Amazon.S3.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using Xunit;
 
 namespace LocalS3.Test
 {
-    [TestClass]
     public class ObjectTest : LocalS3Test
     {
         private string existingBucket = "object-test-bucket";
         private string missedBucket = "some-other-bucket";
 
-        [TestInitialize]
+        [Fact]
         public void SetUp()
         {
             this.client.PutBucket(new PutBucketRequest { BucketName = existingBucket });
         }
 
-        [TestMethod]
+        [Fact]
         public void PutObjectOnRoot()
         {
             var response = this.client.PutObject(new PutObjectRequest 
