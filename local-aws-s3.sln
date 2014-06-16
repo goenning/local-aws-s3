@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0E71A89F-B95A-433F-AA3B-A898BBE24179}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{86B8009F-0C67-48B8-8F08-6E81879DDC70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalS3", "src\LocalS3.csproj", "{B3C40A7F-9F8B-4CE9-89F1-9E3E3F145837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalS3.Test", "tests\LocalS3.Test.csproj", "{068F84D2-2828-4BDC-A9A8-03C24DABD8AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3C40A7F-9F8B-4CE9-89F1-9E3E3F145837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C40A7F-9F8B-4CE9-89F1-9E3E3F145837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C40A7F-9F8B-4CE9-89F1-9E3E3F145837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C40A7F-9F8B-4CE9-89F1-9E3E3F145837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{068F84D2-2828-4BDC-A9A8-03C24DABD8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068F84D2-2828-4BDC-A9A8-03C24DABD8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068F84D2-2828-4BDC-A9A8-03C24DABD8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068F84D2-2828-4BDC-A9A8-03C24DABD8AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3C40A7F-9F8B-4CE9-89F1-9E3E3F145837} = {0E71A89F-B95A-433F-AA3B-A898BBE24179}
+		{068F84D2-2828-4BDC-A9A8-03C24DABD8AF} = {86B8009F-0C67-48B8-8F08-6E81879DDC70}
+	EndGlobalSection
+EndGlobal
