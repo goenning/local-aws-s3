@@ -1,6 +1,8 @@
 Local AWS S3
 ============
 
+*Work is in progress. This is just a draft.*
+
 When developing applications that use AWS SDK for uploading and downloading assets from S3 you will need:
 
 - An Amazon AWS account
